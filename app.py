@@ -33,18 +33,14 @@ def index():
             print(file_path)
 
 
-
-
-
-
             
             file.save(file_path)
             
             # Process the image using Roboflow model
-            result = model.predict(file_path, confidence=40).json()
+            result = model.predict(file_path, confidence=30).json()
             print(result)
             prediction_image_path = os.path.join(app.config['PREDICTION_FOLDER'], 'prediction.jpg')
-            model.predict(file_path, confidence=40).save(prediction_image_path)
+            model.predict(file_path, confidence=30).save(prediction_image_path)
             
             # Calculate the areas and percentages
             image_width = 640
